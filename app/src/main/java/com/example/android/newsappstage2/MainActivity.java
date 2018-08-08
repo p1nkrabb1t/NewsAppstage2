@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -26,10 +25,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Article>> {
 
 
-    // URL to find news updates for July & August 2018
+    // URL to find general news updates
     private static final String DATA_SOURCE_URL =
-            "https://content.guardianapis.com/search?show-fields=byline%2Cthumbnail" +
-                    "&q=uk%20AND%20NOT%20corrections&api-key=cf6b8892-08ce-42ad-b016-b194df810122";
+            "https://content.guardianapis.com/search?show-fields=byline%2Cthumbnailq=uk%20AND%20NOT%20corrections";
+
+    private static final String mApiKey = "cf6b8892-08ce-42ad-b016-b194df810122";
 
     public TextView noDataMessage;
     public ProgressBar progress;
@@ -122,12 +122,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 getString(R.string.settings_default_results_limit));
 
 
-
         Uri startURL = Uri.parse(DATA_SOURCE_URL);
+
 
         // add query selections or defaults and return the new URL
         Uri.Builder uriBuilder = startURL.buildUpon();
 
+        uriBuilder.appendQueryParameter("api-key", mApiKey);
         uriBuilder.appendQueryParameter("section", categories);
         uriBuilder.appendQueryParameter("page-size", resultsLimit);
 

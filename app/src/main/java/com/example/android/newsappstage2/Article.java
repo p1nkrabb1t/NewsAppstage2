@@ -1,7 +1,6 @@
 package com.example.android.newsappstage2;
 
 
-
 public class Article {
 
 

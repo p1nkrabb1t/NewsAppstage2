@@ -36,9 +36,6 @@ public class NewsAdapter extends ArrayAdapter {
 
 
         //Create title object to store article title info
-        //int thumbnail = currentSelection.getThumbnail();
-
-        //Create title object to store article title info
         String title = currentSelection.getTitle();
 
         //Create author object to store info of the author
@@ -65,11 +62,6 @@ public class NewsAdapter extends ArrayAdapter {
 
         //Create section object to store section the article is from
         String section = currentSelection.getSection();
-
-
-        // Find and update the ImageView in the news_item.xml layout with the article thumbnail
-//        ImageView thumbImageView = (ImageView) listItemView.findViewById(R.id.thumbnail);
-//        thumbImageView.setImageResource(thumbnail);
 
         // Find and update the TextView in the news_item.xml layout with the article title
         TextView titleTextView = (TextView) listItemView.findViewById(R.id.title);

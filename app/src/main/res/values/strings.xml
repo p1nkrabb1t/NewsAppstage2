@@ -1,6 +1,6 @@
 <resources>
     <!--general-->
-    <string name="app_name">News UK</string>
+    <string name="app_name">UK &amp; World News</string>
     <string name="by">By:\u0020 %1$s </string>
     <string name="at">At:\u0020 %1$s </string>
     <string name="no_results">No Results Found</string>
@@ -15,14 +15,14 @@
     <!--settings resources for categories option-->
     <string name="settings_title_categories">Categories</string>
     <string name="settings_key_categories">section</string>
-    <string name="settings_default_categories">/sections</string>
+    <string name="settings_default_categories">news</string>
 
     <!-- Label for categories option-->
     <string name="settings_label_categories">Categories</string>
     <string name="settings_value_categories" translatable="false">category</string>
 
     <!-- Label for results limit option-->
-    <string name="settings_label_results_limit">Most Recent</string>
+    <string name="settings_label_results_limit">Results Limit</string>
     <string name="settings_value_results_limit" translatable="false">results</string>
 
 

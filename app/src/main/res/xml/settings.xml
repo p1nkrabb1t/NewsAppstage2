@@ -6,16 +6,15 @@
         android:entries="@array/sectionName"
         android:entryValues="@array/sectionId"
         android:key="@string/settings_key_categories"
-        android:selectAllOnFocus="true"
         android:title="@string/settings_title_categories" />
 
     <EditTextPreference
-        android:defaultValue="10"
+        android:defaultValue="settings_default_results_limit"
         android:inputType="number"
         android:key="@string/settings_key_results_limit"
+        android:maxLength="3"
         android:selectAllOnFocus="true"
         android:title="@string/settings_title_results_limit" />
-
 
 
 </PreferenceScreen>

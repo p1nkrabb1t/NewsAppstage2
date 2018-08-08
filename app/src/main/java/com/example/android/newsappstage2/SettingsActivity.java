@@ -1,8 +1,5 @@
 package com.example.android.newsappstage2;
 
-import android.os.Bundle;
-import android.preference.PreferenceFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -15,11 +12,13 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //create new activity to hold settings fragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
     }
 
-    public static class newsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener{
+    //create fragment to display results of user preferences
+    public static class newsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
