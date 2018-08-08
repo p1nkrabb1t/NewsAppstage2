@@ -1,0 +1,30 @@
+<resources>
+    <!--general-->
+    <string name="app_name">News UK</string>
+    <string name="by">By:\u0020 %1$s </string>
+    <string name="at">At:\u0020 %1$s </string>
+    <string name="no_results">No Results Found</string>
+    <string name="no_connection">No Internet Connection</string>
+    <string name="settings">Settings</string>
+
+    <!--settings resources for results limit option-->
+    <string name="settings_title_results_limit">Limit Results</string>
+    <string name="settings_key_results_limit">page-size</string>
+    <string name="settings_default_results_limit">10</string>
+
+    <!--settings resources for categories option-->
+    <string name="settings_title_categories">Categories</string>
+    <string name="settings_key_categories">section</string>
+    <string name="settings_default_categories">/sections</string>
+
+    <!-- Label for categories option-->
+    <string name="settings_label_categories">Categories</string>
+    <string name="settings_value_categories" translatable="false">category</string>
+
+    <!-- Label for results limit option-->
+    <string name="settings_label_results_limit">Most Recent</string>
+    <string name="settings_value_results_limit" translatable="false">results</string>
+
+
+</resources>
+

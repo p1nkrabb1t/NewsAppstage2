@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ListPreference
+        android:entries="@array/sectionName"
+        android:entryValues="@array/sectionId"
+        android:key="@string/settings_key_categories"
+        android:selectAllOnFocus="true"
+        android:title="@string/settings_title_categories" />
+
+    <EditTextPreference
+        android:defaultValue="10"
+        android:inputType="number"
+        android:key="@string/settings_key_results_limit"
+        android:selectAllOnFocus="true"
+        android:title="@string/settings_title_results_limit" />
+
+
+
+</PreferenceScreen>

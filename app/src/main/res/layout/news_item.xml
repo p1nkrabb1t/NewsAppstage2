@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/pad_S"
+    android:paddingEnd="@dimen/pad_M"
+    android:paddingLeft="@dimen/pad_M"
+    android:paddingRight="@dimen/pad_M"
+    android:paddingStart="@dimen/pad_M"
+    android:paddingTop="@dimen/pad_S">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/mgn_M"
+        android:layout_marginLeft="@dimen/mgn_M"
+        android:layout_marginRight="@dimen/mgn_M"
+        android:layout_marginStart="@dimen/mgn_M"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/txt_M"
+            android:textStyle="bold"
+            tools:text="Article Title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/pad_XS">
+
+            <TextView
+                android:id="@+id/section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/pad_M"
+                android:paddingRight="@dimen/pad_M"
+                android:textAllCaps="true"
+                android:textSize="@dimen/txt_SM"
+                tools:text="News" />
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textAllCaps="true"
+                android:textSize="@dimen/txt_SM"
+                tools:text="Jane Writer" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/pad_XS">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:paddingBottom="@dimen/pad_XS"
+            android:textSize="@dimen/txt_SM"
+            tools:text="July 6, 2018" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:padding="@dimen/pad_XS"
+            android:textSize="@dimen/txt_SM"
+            tools:text="18:00" />
+    </LinearLayout>
+
+</LinearLayout>
