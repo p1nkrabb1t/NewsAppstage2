@@ -55,10 +55,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         ArrayList<Article> articlesList = new ArrayList<>();
 
 
-        // Create a new {@link ArrayAdapter} of articles
+        // Create a new ArrayAdapter of articles
         mAdapter = new NewsAdapter(this, articlesList);
 
-        // Find a reference to the {@link ListView} in the layout
         ListView listView = (ListView) findViewById(R.id.list);
 
         noDataMessage = (TextView) findViewById(R.id.empty_text);
@@ -115,11 +114,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<Article>> onCreateLoader(int id, Bundle bundle) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String subSection = prefs.getString(getString(R.string.settings_key_categories),
+        String categories = sharedPrefs.getString(getString(R.string.settings_key_categories),
                 getString(R.string.settings_default_categories));
-        String numOfResults = prefs.getString(getString(R.string.settings_key_results_limit),
+        String resultsLimit = sharedPrefs.getString(getString(R.string.settings_key_results_limit),
                 getString(R.string.settings_default_results_limit));
 
 
@@ -129,10 +128,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         // add query selections or defaults and return the new URL
         Uri.Builder uriBuilder = startURL.buildUpon();
 
-        uriBuilder.appendQueryParameter("format", "json");
-        uriBuilder.appendQueryParameter("section", "news");
-        uriBuilder.appendQueryParameter("subsection", subSection);
-        uriBuilder.appendQueryParameter("results", numOfResults);
+        uriBuilder.appendQueryParameter("section", categories);
+        uriBuilder.appendQueryParameter("page-size", resultsLimit);
 
         return new ArticleLoader(MainActivity.this, uriBuilder.toString());
     }
