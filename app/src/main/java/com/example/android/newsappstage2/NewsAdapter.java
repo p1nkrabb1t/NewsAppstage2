@@ -45,12 +45,12 @@ public class NewsAdapter extends ArrayAdapter {
         String whenPublished = (currentSelection.getPublished());
         String date = "";
         String time = "";
-        String breakpoint1 = "T";
+        String breakpoint = "T";
         String shortTime = "";
 
-        if (whenPublished.contains(breakpoint1)) {
+        if (whenPublished.contains(breakpoint)) {
             // Split it.
-            String[] parts = whenPublished.split(breakpoint1);
+            String[] parts = whenPublished.split(breakpoint);
             date = parts[0];
             time = parts[1];
             shortTime = time.substring(0, 5);
@@ -59,7 +59,7 @@ public class NewsAdapter extends ArrayAdapter {
             time = null;
         }
 
-
+        
         //Create section object to store section the article is from
         String section = currentSelection.getSection();
 
