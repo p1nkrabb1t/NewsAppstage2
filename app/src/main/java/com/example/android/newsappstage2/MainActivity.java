@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     // URL to find general news updates
     private static final String DATA_SOURCE_URL =
-            "https://content.guardianapis.com/search?show-fields=byline%2Cthumbnailq=uk%20AND%20NOT%20corrections";
+            "https://content.guardianapis.com/search?show-fields=byline&q=NOT%20corrections";
 
     private static final String mApiKey = "cf6b8892-08ce-42ad-b016-b194df810122";
 
@@ -114,12 +115,32 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<Article>> onCreateLoader(int id, Bundle bundle) {
+        //retrieve the users preference settings
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
+        //convert preferences to string for use in URL
         String categories = sharedPrefs.getString(getString(R.string.settings_key_categories),
                 getString(R.string.settings_default_categories));
         String resultsLimit = sharedPrefs.getString(getString(R.string.settings_key_results_limit),
                 getString(R.string.settings_default_results_limit));
+
+
+        /*
+          convert to int, check if numeric entry is within allowable range;
+          if not in allowable range set to min or max available and notify user;
+          convert back to string to make ready for URL
+        */
+        int resultsLimitChecker = Integer.parseInt(resultsLimit);
+        if (resultsLimitChecker < 1) {
+            int tempResultHolder = 1;
+            resultsLimit = Integer.toString(tempResultHolder);
+            Toast.makeText(this, R.string.toast_min_results, Toast.LENGTH_LONG).show();
+        }
+        if (resultsLimitChecker > 200) {
+            int tempResultHolder = 200;
+            resultsLimit = Integer.toString(tempResultHolder);
+            Toast.makeText(this, R.string.toast_max_results, Toast.LENGTH_LONG).show();
+        }
 
 
         Uri startURL = Uri.parse(DATA_SOURCE_URL);

@@ -26,24 +26,24 @@ public class Article {
     /**
      * Constructs a new object containing thumbnail image, title, author, publish date & section
      */
-    public Article(int Thumbnail, String Title, String Author, String whenPublished, String Section, String Url) {
-        mThumbnail = Thumbnail;
-        mTitle = Title;
-        mAuthor = Author;
+    public Article(int thumbnail, String title, String author, String whenPublished, String section, String url) {
+        mThumbnail = thumbnail;
+        mTitle = title;
+        mAuthor = author;
         mWhenPublished = whenPublished;
-        mSection = Section;
-        mUrl = Url;
+        mSection = section;
+        mUrl = url;
     }
 
     /**
      * Constructs a new object containing title, author, publish date & section
      */
-    public Article(String Title, String Author, String whenPublished, String Section, String Url) {
-        mTitle = Title;
-        mAuthor = Author;
+    public Article(String title, String author, String whenPublished, String section, String url) {
+        mTitle = title;
+        mAuthor = author;
         mWhenPublished = whenPublished;
-        mSection = Section;
-        mUrl = Url;
+        mSection = section;
+        mUrl = url;
     }
 
 

@@ -99,23 +99,34 @@ public class Utils {
         // Create an empty ArrayList for articles
         List<Article> articlesList = new ArrayList<>();
 
+
         // Create JSONObject
         try {
             JSONObject jsonRootObject = new JSONObject(jsonData);
-            JSONObject response = jsonRootObject.getJSONObject("response");
+            JSONObject response = jsonRootObject.optJSONObject("response");
 
             //Get the instance of JSONArray that contains JSONObjects
-            JSONArray jsonArray = response.getJSONArray("results");
+            JSONArray jsonArray = response.optJSONArray("results");
+
 
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject newsItem = jsonArray.getJSONObject(i);
+                String author = null;
+                JSONObject newsItem = jsonArray.optJSONObject(i);
 
-                String title = newsItem.getString("webTitle");
-                JSONObject published = newsItem.getJSONObject("fields");
-                String author = published.getString("byline");
-                String section = newsItem.getString("sectionName");
-                String url = newsItem.getString("webUrl");
-                String date = newsItem.getString("webPublicationDate");
+                String title = newsItem.optString("webTitle");
+
+                //check if 'fields' and 'byline' json pairs are available and retrieve author info if so
+                if (newsItem.optJSONObject("fields") != null) {
+                    JSONObject published = newsItem.optJSONObject("fields");
+                    if (published.optString("byline") != null) {
+                        author = published.optString("byline");
+                    }
+                }
+
+
+                String section = newsItem.optString("sectionName");
+                String url = newsItem.optString("webUrl");
+                String date = newsItem.optString("webPublicationDate");
 
                 Article articleItem = new Article(title, author, date, section, url);
                 articlesList.add(articleItem);

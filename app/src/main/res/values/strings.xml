@@ -1,11 +1,15 @@
 <resources>
     <!--general-->
     <string name="app_name">UK &amp; World News</string>
+    <string name="settings">Settings</string>
     <string name="by">By:\u0020 %1$s </string>
     <string name="at">At:\u0020 %1$s </string>
+
+    <!--user notifications-->
     <string name="no_results">No Results Found</string>
     <string name="no_connection">No Internet Connection</string>
-    <string name="settings">Settings</string>
+    <string name="toast_min_results">1 result is the minimum choice allowed</string>
+    <string name="toast_max_results">200 results is the maximum choice allowed</string>
 
     <!--settings resources for results limit option-->
     <string name="settings_title_results_limit">Limit Results</string>
@@ -24,7 +28,6 @@
     <!-- Label for results limit option-->
     <string name="settings_label_results_limit">Results Limit</string>
     <string name="settings_value_results_limit" translatable="false">results</string>
-
 
 </resources>
 

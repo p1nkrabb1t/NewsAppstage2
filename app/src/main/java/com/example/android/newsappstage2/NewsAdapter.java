@@ -71,19 +71,22 @@ public class NewsAdapter extends ArrayAdapter {
         TextView authorTextView = (TextView) listItemView.findViewById(R.id.author);
         authorTextView.setText(getContext().getString(R.string.by, author));
 
-        // Find and update the TextView in the quake_item.xml layout with the date
+        //check if byline present and hide the author text view if not available
+        if (author == null) {
+            authorTextView.setVisibility(View.GONE);
+        }
+
+        // Find and update the TextView in the news_item.xml layout with the date
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
         dateTextView.setText(date);
 
-        // Find and update the TextView in the quake_item.xml layout with the date
+        // Find and update the TextView in the news_item.xml layout with the date
         TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
         timeTextView.setText(getContext().getString(R.string.at, shortTime));
-
 
         // Find and update the TextView in the news_item.xml layout with the section type
         TextView sectionTextView = (TextView) listItemView.findViewById(R.id.section);
         sectionTextView.setText(section);
-
 
         return listItemView;
     }
